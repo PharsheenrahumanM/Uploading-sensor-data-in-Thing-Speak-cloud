@@ -1,5 +1,6 @@
 # Uploading temperature sensor data in Thing Speak cloud
-
+# NAME: PharsheenRahumanM
+# REF NO:24006746
 # AIM:
 To monitor the temperature sensor data in the Thing speak using an ESP32 controller.
 
@@ -71,10 +72,77 @@ Automatically act on your data and communicate using third-party services like T
 
 
 # PROGRAM:
+```
+#include "ThingSpeak.h"
+#include <WiFi.h>
+#include "DHT.h"
+
+
+char ssid[] = "Akshay";
+char pass[] = "Loid D Ackerman :)";
+
+const int out = 23;
+long T;
+float temperature = 0;
+WiFiClient client;
+DHT dht(23, DHT11);
+
+unsigned long myChannelField = 2785416;
+const int TemperatureField = 1;
+const int HumidityField = 2;
+
+const char* myWriteAPIKey = "R7LNAVHQE1W3T0FA";
+
+void setup()
+{
+  Serial.begin(115200);
+  pinMode(out, INPUT);
+  ThingSpeak.begin(client);
+  dht.begin();
+  delay(1000);
+}
+
+void loop()
+{
+  if (WiFi.status() != WL_CONNECTED)
+  {
+    Serial.print("Attempting to connect to SSID: ");
+    Serial.println(ssid);
+    while (WiFi.status() != WL_CONNECTED)
+    {
+      WiFi.begin(ssid,pass);
+      Serial.print(".");
+      delay(5000);
+    }
+    Serial.println("\nConnected.");
+  }
+  float temperature = dht.readTemperature();
+  float humidity = dht.readHumidity();
+
+  Serial.print("Temperature: ");
+  Serial.println(temperature);
+  Serial.println(" °C");
+
+  Serial.print("Humidity: ");
+  Serial.println(humidity);
+  Serial.println(" g.m-3");
+
+  ThingSpeak.writeField(myChannelField, TemperatureField, temperature, myWriteAPIKey);
+  ThingSpeak.writeField(myChannelField, HumidityField, humidity, myWriteAPIKey);
+  delay(100);
+}
+```
 
 # CIRCUIT DIAGRAM:
+![iot ex3 cd](https://github.com/user-attachments/assets/a65c390c-74ce-416a-9f84-7c307b0431ca)
+
 
 # OUTPUT:
+![iot ex3 output](https://github.com/user-attachments/assets/f425e74b-9604-486b-a12f-3a7266e7b0d6)
+
+![iot ex3 output](https://github.com/user-attachments/assets/1023244c-6b0a-44e1-8752-80cdd96b1fef)
+![iot ex3 fc](https://github.com/user-attachments/assets/a1d4b5d8-b073-4954-9ab8-4b8b078f74c5)
+
 
 # RESULT:
 
