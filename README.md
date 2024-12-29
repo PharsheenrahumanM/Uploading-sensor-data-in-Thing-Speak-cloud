@@ -1,4 +1,4 @@
-# Uploading temperature sensor data in Thing Speak cloud
+# EXPERIMENT 3: Uploading temperature sensor data in Thing Speak cloud
 # NAME: PharsheenRahumanM
 # REF NO:24006746
 # AIM:
@@ -134,15 +134,13 @@ void loop()
 ```
 
 # CIRCUIT DIAGRAM:
-![iot ex3 cd](https://github.com/user-attachments/assets/a65c390c-74ce-416a-9f84-7c307b0431ca)
+<img src="https://github.com/user-attachments/assets/3651ea29-ac8e-499e-8ed9-36d2b6611826"/>
+
 
 
 # OUTPUT:
-![iot ex3 output](https://github.com/user-attachments/assets/f425e74b-9604-486b-a12f-3a7266e7b0d6)
-
-![iot ex3 output](https://github.com/user-attachments/assets/1023244c-6b0a-44e1-8752-80cdd96b1fef)
-![iot ex3 fc](https://github.com/user-attachments/assets/a1d4b5d8-b073-4954-9ab8-4b8b078f74c5)
-
+<img src="https://github.com/user-attachments/assets/edb89dbc-1bb8-450f-a326-e5115931559b"/>
+<img src="https://github.com/user-attachments/assets/58771ce3-e43e-423e-8d8f-6fc00ea816d0"/>
 
 # RESULT:
 
